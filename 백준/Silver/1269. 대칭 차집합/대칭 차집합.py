@@ -1,0 +1,5 @@
+n, m = map(int, input().split())
+n_list = list(map(int, input().split()))
+m_list = list(map(int, input().split()))
+diff = list(set(n_list) ^ set(m_list))
+print(len(diff))
