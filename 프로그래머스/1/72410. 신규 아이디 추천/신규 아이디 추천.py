@@ -2,7 +2,7 @@ import re
 
 def solution(new_id):
     answer = re.sub(r'[^\w\-_.]', '', new_id.lower())
-    answer = re.sub(r'\.{2,}', '.', answer)
+    answer = re.sub(r'\.+', '.', answer)
     answer = re.sub(r'^\.|\.$', '', answer)
     answer = re.sub(r'\.$', '', answer[:15])
     
