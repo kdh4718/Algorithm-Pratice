@@ -7,5 +7,5 @@ def solution(n):
         else:
             n -= 1
             answer += 1
-    
+
     return answer
