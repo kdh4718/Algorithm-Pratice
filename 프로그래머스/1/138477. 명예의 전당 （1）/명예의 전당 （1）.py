@@ -4,11 +4,9 @@ def solution(k, score):
     
     for num in score:
         honor.append(num)
-        if len(honor) <= k:
-            answer.append(min(honor))
-            
-        else:
-            honor.pop(honor.index(min(honor)))
-            answer.append(min(honor))
+        if len(honor) > k:
+            honor.remove(min(honor))
+
+        answer.append(min(honor))
     
     return answer
