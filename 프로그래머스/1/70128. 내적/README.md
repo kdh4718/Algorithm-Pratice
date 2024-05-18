@@ -1,10 +1,10 @@
 # [level 1] 내적 - 70128 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/70128?language=kotlin) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/70128?language=java) 
 
 ### 성능 요약
 
-메모리: 60.7 MB, 시간: 7.57 ms
+메모리: 74 MB, 시간: 1.81 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 05월 13일 16:07:45
+2024년 05월 18일 19:25:37
 
 ### 문제 설명
 
