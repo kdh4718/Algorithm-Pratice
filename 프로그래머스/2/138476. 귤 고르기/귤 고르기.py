@@ -8,13 +8,13 @@ def solution(k, tangerine):
         else:
             dic[i] += 1
     
-    dic = sorted(dic.items(), key = lambda x: x[1], reverse = True)
+    dic = sorted(dic.values(), reverse = True)
     
-    for t, num in dic:
+    for i in dic:
         if k <= 0:
             break
-        
-        k -= num
+            
+        k -= i
         answer += 1
     
     return answer
