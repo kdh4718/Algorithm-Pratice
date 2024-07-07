@@ -6,6 +6,6 @@ class Solution {
             answer += a % 10;
             a /= 10;
         }
-        return (x%answer == 0) ? true : false;
+        return x%answer == 0;
     }
 }
