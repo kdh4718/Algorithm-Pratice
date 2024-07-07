@@ -1,9 +1,2 @@
 def solution(n):
-    answer = []
-    for i in str(n):
-        answer.append(int(i))
-    answer.sort()
-    score = 0
-    for i in range(len(answer)):
-        score += answer[i]*(10**i)
-    return score
+    return int(''.join(sorted(list(i for i in str(n)), reverse = True)))
