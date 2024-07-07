@@ -1,11 +1,6 @@
 class Solution {
     public boolean solution(int x) {
-        int answer = 0;
-        int a = x;
-        while(a > 0){
-            answer += a % 10;
-            a /= 10;
-        }
+        int answer = String.valueOf(x).chars().map(i -> i - '0').sum();
         return x%answer == 0;
     }
 }
