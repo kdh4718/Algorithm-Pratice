@@ -2,20 +2,12 @@ import java.util.*;
 
 class Solution {
     public long solution(long n) {
-        String answer = Long.toString(n);
-        ArrayList<Integer> arr = new ArrayList<>();
+        String[] answer = String.valueOf(n).split("");
+        Arrays.sort(answer);
         
-        for (int i = 0; i < answer.length(); i++){
-            arr.add(answer.charAt(i) - '0');
-        }
+        StringBuilder sb = new StringBuilder();
+        for (String i : answer) sb.append(i);
         
-        arr.sort(Comparator.reverseOrder());
-        
-        StringBuilder sortedStr = new StringBuilder();
-        for (int num : arr) {
-            sortedStr.append(num);
-        }
-        
-        return Long.parseLong(sortedStr.toString());
+        return Long.parseLong(sb.reverse().toString());
     }
 }
