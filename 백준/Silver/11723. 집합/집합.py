@@ -6,13 +6,13 @@ S = set()
 
 for _ in range(m):
     temp = list(input().split())
-    
+
     if len(temp) == 1:
         if temp[0] == "all":
             S = set([i for i in range(1, 21)])
         else:
             S = set()
-    
+
     else:
         func, x = temp[0], temp[1]
         x = int(x)
