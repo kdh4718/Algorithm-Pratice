@@ -63,7 +63,6 @@ for _ in range(1, t+1):
             dfs(index + 1, core + 1, line + num, gr)
 
         dfs(index + 1, core, line, graph)
-        # dfs(index + 1, core, line, graph)
 
     for i in range(n):
         for j in range(n):
