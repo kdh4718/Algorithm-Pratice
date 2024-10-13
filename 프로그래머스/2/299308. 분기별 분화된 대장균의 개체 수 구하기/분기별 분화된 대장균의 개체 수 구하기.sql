@@ -1,0 +1,12 @@
+-- 코드를 작성해주세요
+SELECT 
+    CASE 
+        WHEN month(DIFFERENTIATION_DATE) IN (1, 2, 3) THEN '1Q'
+        WHEN month(DIFFERENTIATION_DATE) IN (4, 5, 6) THEN '2Q'
+        WHEN month(DIFFERENTIATION_DATE) IN (7, 8, 9) THEN '3Q'
+        WHEN month(DIFFERENTIATION_DATE) IN (10, 11, 12) THEN '4Q'
+    END AS QUARTER
+    , count(*) as ECOLI_COUNT
+FROM ECOLI_DATA
+group by QUARTER
+order by QUARTER
