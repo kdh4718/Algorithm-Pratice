@@ -1,29 +1,27 @@
 n = int(input())
-f = [list(map(int, input().split())) for _ in range(n)]
-f.sort()
+flower = [list(map(int, input().split())) for _ in range(n)]
+count, index, maxEnd = 0, 0, (0, 0)
+now, end = (3, 1), (11, 30)
 
-i = 0
-result = 0
-latest_end = (3, 1)
+flower.sort()
 
-while i < n:
-    sm, sd, em, ed = f[i]
-    if (sm, sd) <= latest_end < (em, ed):
-        max_end = (em, ed)
-        while i < n - 1:
-            nsm, nsd, nem, ned = f[i + 1]
-            if latest_end < (nsm, nsd):
-                break
-            if max_end < (nem, ned):
-                max_end = (nem, ned)
-            i += 1
+while True:
+    flag = False
 
-        result += 1
-        latest_end = max_end
+    for i in range(index, n):
+        if (flower[i][0], flower[i][1]) > now: break
 
-        if (11, 30) < latest_end:
-            print(result)
-            exit(0)
-    i += 1
+        if now >= (flower[i][0], flower[i][1]) and (flower[i][2], flower[i][3]) > maxEnd:
+            flag = True
+            index = i
+            maxEnd = (flower[i][2], flower[i][3])
 
-print(0)
+    if not flag:
+        print(0)
+        break
+
+    count += 1
+    now = maxEnd
+    if now > end:
+        print(count)
+        break
