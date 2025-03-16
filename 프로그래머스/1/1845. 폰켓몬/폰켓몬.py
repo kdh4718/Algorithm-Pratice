@@ -1,5 +1,6 @@
-def solution(nums):
-    answer = 0
-    dic = {i: 1 for i in nums}
+from collections import Counter
 
-    return min(len(nums)//2, len(dic))
+def solution(nums):
+    answer = Counter(nums)
+    
+    return min(len(answer), len(nums)//2)
