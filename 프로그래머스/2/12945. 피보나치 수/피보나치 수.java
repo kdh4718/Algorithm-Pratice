@@ -1,13 +1,14 @@
 class Solution {
     public int solution(int n) {
-        int[] fib = new int[n+1];
-        fib[0] = 0;
-        fib[1] = 1;
+        int[] answer = new int[n + 1];
         
-        for (int i = 2; i < n+1; i++){
-            fib[i] = (fib[i-1] + fib[i-2])%1234567;
+        answer[0] = 1;
+        answer[1] = 1;
+        
+        for (int i = 2; i < n; i++){
+            answer[i] = (answer[i - 1] + answer[i - 2])%1234567;
         }
         
-        return fib[n];
+        return answer[n - 1];
     }
 }
