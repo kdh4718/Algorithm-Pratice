@@ -2,13 +2,15 @@ import java.util.*;
 
 class Solution {
     public int[] solution(int[] arr) {
-        int minNum = Arrays.stream(arr).min().orElse(0);
-        int[] answer = Arrays.stream(arr).filter(it -> it != minNum).toArray();
+        int[] answer = {};
         
-        if (answer.length == 0) {
+        if (arr.length == 1){
             return new int[] {-1};
         }
         
+        int minNumber = Arrays.stream(arr).min().getAsInt();
+        answer = Arrays.stream(arr).filter(i -> i != minNumber).toArray();
+            
         return answer;
     }
 }
