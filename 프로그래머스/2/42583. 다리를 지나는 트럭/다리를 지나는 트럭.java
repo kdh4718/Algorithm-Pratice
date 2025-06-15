@@ -1,31 +1,36 @@
 import java.util.*;
 
 class Solution {
+    static class Truck {
+        int weight;
+        int enterTime;
+
+        Truck(int weight, int enterTime) {
+            this.weight = weight;
+            this.enterTime = enterTime;
+        }
+    }
+
     public int solution(int bridge_length, int weight, int[] truck_weights) {
-        int answer = 0;
-        int location = 0;
+        Queue<Truck> bridge = new LinkedList<>();
+        int time = 0;
         int totalWeight = 0;
-        Queue<Integer> queue = new LinkedList<>();
-        
-        for (int i = 0; i < bridge_length; i++){
-            queue.offer(0);
-        }
-        
-        while (location < truck_weights.length){
-            totalWeight -= queue.poll();
-            
-            if (totalWeight + truck_weights[location] <= weight){
-                queue.offer(truck_weights[location]);
-                totalWeight += truck_weights[location];
-                location += 1;
-            }else{
-                queue.offer(0);
+        int index = 0;
+
+        while (index < truck_weights.length || !bridge.isEmpty()) {
+            time += 1;
+
+            if (!bridge.isEmpty() && time - bridge.peek().enterTime >= bridge_length) {
+                totalWeight -= bridge.poll().weight;
             }
-            answer += 1;
+
+            if (index < truck_weights.length && totalWeight + truck_weights[index] <= weight) {
+                bridge.offer(new Truck(truck_weights[index], time));
+                totalWeight += truck_weights[index];
+                index += 1;
+            }
         }
-        
-        answer += bridge_length;
-        
-        return answer;
+
+        return time;
     }
 }
