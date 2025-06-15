@@ -1,5 +1,3 @@
-import java.util.*;
-
 class Solution {
     boolean solution(String s) {
         int answer = 0;
@@ -10,14 +8,11 @@ class Solution {
             }else{
                 answer -= 1;
             }
-            
-            if (answer < 0){break;}
+            if (answer < 0){
+                return false;
+            }
         }
-    
-        if (answer == 0){
-            return true;
-        }else {
-            return false;
-        }
+
+        return answer == 0 ? true : false;
     }
 }
