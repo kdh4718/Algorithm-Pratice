@@ -2,13 +2,13 @@ import java.util.*;
 
 class Solution {
     public int solution(int[] nums) {
-        HashSet<Integer> numSet = new HashSet<Integer>();
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        int answer = nums.length / 2;
         
         for (int num : nums){
-            numSet.add(num);
+            hm.put(num, hm.getOrDefault(num, 0) + 1);
         }
         
-        int answer = Math.min(nums.length/2, numSet.size());
-        return answer;
+        return Math.min(answer, hm.size());
     }
 }
