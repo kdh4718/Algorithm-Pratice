@@ -1,48 +1,47 @@
 import java.util.*;
 
 class Solution {
-    static class Process {
-        int priority;
-        int index;
-
-        Process(int priority, int index) {
+    static class Process{
+        int priority, index;
+        
+        Process(int priority, int index){
             this.priority = priority;
             this.index = index;
         }
     }
-
+    
     public int solution(int[] priorities, int location) {
-        Queue<Process> queue = new LinkedList<>();
-        int[] priorityCount = new int[10]; 
-
-        for (int i = 0; i < priorities.length; i++) {
-            int p = priorities[i];
-            queue.offer(new Process(p, i));
-            priorityCount[p]++;
-        }
-
         int answer = 0;
-        int currentMax = 9;
-
-        while (!queue.isEmpty()) {
-            Process current = queue.poll();
-
-            while (priorityCount[currentMax] == 0) {
-                currentMax--;
+        int topPriority = 9;
+        int[] countPriority = new int[10];
+        Queue<Process> queue = new LinkedList<>();
+        
+        for (int i = 0; i < priorities.length; i++){
+            int num = priorities[i];
+            
+            queue.offer(new Process(num, i));
+            countPriority[num] += 1;
+        }
+        
+        while (!queue.isEmpty()){
+            Process cur = queue.poll();
+            
+            while (countPriority[topPriority] == 0){
+                topPriority -= 1;
             }
-
-            if (current.priority == currentMax) {
-                answer++;
-                priorityCount[currentMax]--;
-
-                if (current.index == location) {
+            
+            if (cur.priority == topPriority){
+                answer += 1;
+                countPriority[topPriority] -= 1;
+                
+                if (cur.index == location){
                     return answer;
                 }
-            } else {
-                queue.offer(current); 
+                continue;
             }
+            queue.offer(cur);
         }
-
+        
         return answer;
     }
 }
