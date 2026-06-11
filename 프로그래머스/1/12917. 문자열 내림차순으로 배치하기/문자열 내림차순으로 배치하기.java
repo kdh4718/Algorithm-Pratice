@@ -1,15 +1,12 @@
-import java.util.*;
+import java.util.Arrays;
 
 class Solution {
     public String solution(String s) {
-        String[] answer = s.split("");
-        Arrays.sort(answer);
+        char[] divide = s.toCharArray();
+        Arrays.sort(divide);
         
-        StringBuilder result = new StringBuilder();
-        for (String i : answer) {
-            result.append(i);
-        }
+        String answer = new StringBuilder(new String(divide)).reverse().toString();
         
-        return result.reverse().toString();
+        return answer;
     }
 }
